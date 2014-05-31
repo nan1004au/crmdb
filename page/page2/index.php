@@ -14,29 +14,34 @@ include_once("../../include/page.php");
 <body>
 	<!-- 상단 고정되어 들어가는 부분 -->
 	<div class="menu" id="gnb_wrp" style="height:100px;"> <!-- menu div start --> 
-		<div id="tbt"style="width:100%;margin:0 auto;height:110px;margin-bottom:0px;padding-bottom:10px"> <!-- tbt div start --> 
-<div style="margin:0 auto;width:800px;float:left">
-			<form action="../../form_pr.php" method="post" id="db_form" name="form">
+		<div id="tbt"> <!-- tbt div start --> 
+			<div id="top_con"> <!-- top_con start -->
+				<form action="../../form_pr.php" method="post" id="db_form" name="form">
 				<!-- 이부분은 꼭 넣어 주셔야 합니다. -->
 				<input type="hidden" name="event_name" id="event_name" value="<?=$event_title?>" />
 				<input type="hidden" name="prev_url" id="prev_url" value="" />
 				<input type="hidden" name="user_agent" id="user_agent" value="컴퓨터" />
 				<input type="hidden" name="j_group" id="j_group" value="<?=$j_group?>" />
-				<div style="margin-left:20px;width:1200px" id="up_form_box"> <!-- form box star -->
-					<div id="left" style="float:left;width:400px;"> <!-- left div start -->
+
+				<div id="up_form_box"> <!-- form box star -->
+					<div id="left" > <!-- left div start -->
+
 						<?if( $row_form['ch_name'] == 'y'){?>
 						<div>
-							<label style="width:150px;" for="name" class="col-lg-2 control-label">
+							<label for="name" class="col-lg-2 control-label">
 								이름 :
 							</label>
-							<input id="name" style="width:200px" class="form-control" type="text" name="name" />
+
+							<input id="name"  class="form-control" type="text" name="name" />
 						</div>
+
+
 						<? }if( $ch_time == 'y'){ ?>
 						<div>
-							<label style="width:150px;" for="time" class="col-lg-2 control-label">
+							<label for="time" class="col-lg-2 control-label">
 								통화가능시간 : 
 							</label>
-							<select style="width:200px" class="form-control" id="time" name="time">
+							<select  class="form-control" id="time" name="time">
 								<option value="">::시간선택::</option>
 								<option value="항시가능">항시가능</option>
 								<option value="09시~10시">09시~10시</option>
@@ -51,38 +56,49 @@ include_once("../../include/page.php");
 								<option value="18시이후">18시이후</option>
 							</select>
 						</div>
+
+
 						<?}if( $ch_age == 'y'){?>
 						<div>
-							<label style="width:150px;" for="age" class="col-lg-2 control-label"> 
+							<label  for="age" class="col-lg-2 control-label"> 
 								나이 :
 							</label>
-							<input id="age" name="age" style="width:200px" class="form-control" type="text" />
+							<input id="age" name="age"  class="form-control" type="text" />
 						</div>
+
+
+
 						<?}if( $ch_phone == 'y'){?>
 						<div>
-							<label style="width:150px;" for="age" class="col-lg-2 control-label">
+							<label for="age" class="col-lg-2 control-label">
 								연락처 : 
 							</label>
-							<input id="phone" name="phone" style="width:200px"  type="text" />
+							<input id="phone" name="phone"  type="text" />
 						</div>
+
+
+
 						<?}if( $ch_sex == 'y'){?>
 						<div>
-							<label style="width:150px;" for="sex" class="col-lg-2 control-label">
+							<label for="sex" class="col-lg-2 control-label">
 								성별 :
 							</label>
-							<select style="width:200px" class="form-control"  name="sex">
+							<select class="form-control"  name="sex">
 								<option>남</option>
 								<option>여</option>
 							</select>
 						</div>
 						<?}?>
+
+
+
 					</div><!--left div end -->
-					<div id="right" style="float:left;width:400px;"> <!-- right div start -->
+					<div id="right" > <!-- right div start -->
 						<?  if( $ch_branch == 'y'){ ?>
-						<label style="width:150px;" for="sex" class="col-lg-2 control-label">
+						<label for="sex" class="col-lg-2 control-label">
 							지점 :
 						</label>
-						<select style="margin-left:59px;width:200px" class="form-control"  name="branch">
+						<select class="form-control"  name="branch">
 								<option value="">지점 선택</option>
 							<?
 								$query = "select * from $table_name_branch";
@@ -95,16 +111,16 @@ include_once("../../include/page.php");
 						</select>
 						<br />
 						<?  } if( $ch_day == 'y'){ ?>
-						<label style="width:150px;" for="age" class="col-lg-2 control-label"> 
+						<label for="age" class="col-lg-2 control-label"> 
 							날짜 :
 						</label>
-						<input id="r_date" name="r_date" style="margin-left:59px;width:200px" class="form-control" type="text" />
+						<input id="r_date" name="r_date" class="form-control" type="text" />
 						<br />
 						<?  } if( $ch_group== 'y'){ ?>
-						<label style="width:150px;" for="sex" class="col-lg-2 control-label">
+						<label for="sex" class="col-lg-2 control-label">
 							진료과목 :
 						</label>
-						<select style="margin-left:25px;width:200px" class="form-control"  name="j_category">
+						<select  class="form-control"  name="j_category">
 							<?
 								$query = "select * from $table_name_j_category";
 								$result_branch = mysqli_query($connect, $query);
@@ -115,11 +131,14 @@ include_once("../../include/page.php");
 							<?}?>
 						</select>
 						<br />
+
+
+
 						<?}if( $ch_price == 'y'){?>
-						<label style="width:150px;" for="event" class="col-lg-2 control-label">
+						<label for="event" class="col-lg-2 control-label">
 							이벤트 선택 : 
 						</label>
-						<select style="width:200px" class="form-control"  name="event_sel">
+						<select class="form-control"  name="event_sel">
 							<?while($row = mysqli_fetch_array($result_event_list)){ ?>
 								<option value="<?echo $row['name']. " : ". $row['price']; ?>" >
 									<?echo $row['name'] . " : " . $row['price']; ?>
@@ -129,31 +148,34 @@ include_once("../../include/page.php");
 						<?}?>
 					</div> <!-- right end -->
 				</div> <!-- form box div end -->
-				<div >
-					<input type="submit" value="상담신청" class="btn_submit" />
-				</div>
-
 			</div> <!-- up-form-box end -->
 
-			<div id="bottom" style="float:left;width:100%"> <!-- bottom div star --> 
-				<?if($ch_story == 'y'){?>
-				<label style="width:50px;" for="etc" class="col-lg-2 control-label">
-					사연/문의
-				</label>
-				<textarea style="width:650px" class="form-control" id="etc" rows="3" cols="100" name="etc"></textarea>
-				<br />
-				<?}?>
-			</div> <!-- bottom div end --> 
-					<?if( $ch_agree == 'y'){?> <!-- 문의 사항 --> 
-					<div style="width:700px;text-align:right;">
-						<label style="width:150px; margin-left:10px"> 개인정보사용동의 <input type="checkbox" id="agree" name="agree" value="동의"></label>
+			<div id="bottom" > <!-- bottom div star --> 
+				<div id="bottom_con">
+					<?if($ch_story == 'y'){?>
+					 <div id="bottom_left">
+						<label  for="etc"> 사연/문의 </label>
+						<textarea id="etc" rows="3" name="etc"></textarea>
 					</div>
 					<?}?>
-</div>
+					 <div id="bottom_right">
+						<?if( $ch_agree == 'y'){?> <!-- 문의 사항 --> 
+						<div>
+						<label> 
+							개인정보사용동의 
+							<input type="checkbox" id="agree" name="agree" value="동의">
+						</label>
+
+						 </div>
+						<?}?>
+						<input type="submit" value="상담신청"  class="btn_submit" />
+					</div>
+				</div> <!-- bottom_con div end --> 
+			</div> <!-- bottom div end --> 
 		</div> <!-- tbt div end --> 
 	</div> <!-- menu div end --> 
-<!-- 컨텐츠가 들어가는 부분 --> 
-	<div id="image" style="margin-top:100px">
+	<!-- 컨텐츠가 들어가는 부분 --> 
+	<div id="image">
 		<img src="../../page/img/<?echo $event_img_01?>" >
 	</div>
 </body>
