@@ -3,7 +3,7 @@ body,ul,ol,li,dl,dt,dd,p,h1,h2,h3,h4,h5,h6,input { margin:0; padding:0; }
 #tbt{
 	background-image:url(../img/bgbg.jpg); color:#FFFFFF; font-weight:bold; padding-top:20px; padding-bottom:20px;
 	width:100%;
-	height:110px;
+	height:150px;
 	margin-bottom:0px;
 	padding-bottom:10px
 }
@@ -14,19 +14,27 @@ body,ul,ol,li,dl,dt,dd,p,h1,h2,h3,h4,h5,h6,input { margin:0; padding:0; }
 }
 
 #bottom_con{
-	width:680px;
+	width:720px;
 	margin:0 auto;
 }
 
-#bottom_left ,#bottom_right{
+#bottom_left{
 	float:left;
+	width:350;
+	margin-right:10px;
 }
-#bottom_left { margin-right:10px;}
-#bottom_right { margin-left:10px;}
+
+
+#bottom_right{
+	float:right;
+	width:350;
+	margin-left:10px;
+}
+
 
 
 #bottom_left label{
-	width:120px;
+	width:148px;
 	float:left;
 }
 
@@ -39,7 +47,6 @@ body,ul,ol,li,dl,dt,dd,p,h1,h2,h3,h4,h5,h6,input { margin:0; padding:0; }
 
 #bottom_right {
 	width:330px;
-	margin:0 auto;
 	text-align:right;
 }
 
@@ -63,35 +70,40 @@ p { margin:0 }
 }
 
 #top_con{
-	width:680px;
+	width:720px;
 	margin:0 auto;
 }
 
 
-#left { margin-right:10px;}
-#right { margin-left:10px;}
 
-#left ,#right{
+#top_left{
 	float:left;
+	width:350px;
+	margin-right:10px;
 }
 
-#top_con div{
+#top_right{
+	float:left;
+	width:350px;
+	margin-left:10px;
 }
+
+
 
 
 #top_con label{
-	width:120px;
+	width:130px;
 	float:left;
 }
 
 #top_con input{
 	width:200px;
-	float:left;
+	float:right;
 }
 
 #top_con select{
 	width:202px;
-	float:left;
+	float:right;
 }
 
 
@@ -118,10 +130,10 @@ ul,ol { list-style:none; }
 width:800px;
 margin-top:150px;
 }
-#left input, select {
+#top_left input, #top_left select {
 	margin-bottom:3px;
 }
-#right input, select {
+#top_right input,#top_right select {
 	margin-bottom:3px;
 }
 

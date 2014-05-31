@@ -24,27 +24,26 @@ $(document).ready(function(){
 			});
 
 		$("#db_form").validate({
-		onkeyup:false,
-		onclick:false,
-		onfocusout:false,
-		showErrors:function(errorMap, errorList){
-		if(!$.isEmptyObject(errorList)){
-			alert(errorList[0].message);
-		}
-		},
-
-		rules:{
-			name:{required: true},
-			phone:{required: true},
-			branch:{required: true},
-			agree:{required: true}
-		},
-		messages: {
-			name: "이름을 입력해 주세요",
-			phone: "연락처를 입력해 주세요",
-			branch: "지점 입력해 주세요",
-			agree: "개인정보 동의를 해부세요 ",
-		}
+			onkeyup:false,
+			onclick:false,
+			onfocusout:false,
+			showErrors:function(errorMap, errorList){
+				if(!$.isEmptyObject(errorList)){
+					alert(errorList[0].message);
+				}
+			},
+			rules:{
+				name:{required: true},
+				phone:{required: true},
+				branch:{required: true},
+				agree:{required: true},
+			},
+			messages: {
+				agree: "개인정보 동의를 해부세요 ",
+				name: "이름을 입력해 주세요",
+				phone: "연락처를 입력해 주세요",
+				branch: "지점 입력해 주세요",
+			}
 
 	});
 

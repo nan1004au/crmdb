@@ -24,7 +24,7 @@ include_once("../../include/page.php");
 				<input type="hidden" name="j_group" id="j_group" value="<?=$j_group?>" />
 
 				<div id="up_form_box"> <!-- form box star -->
-					<div id="left" > <!-- left div start -->
+					<div id="top_left" > <!-- left div start -->
 
 						<?if( $row_form['ch_name'] == 'y'){?>
 						<div>
@@ -93,7 +93,7 @@ include_once("../../include/page.php");
 
 
 					</div><!--left div end -->
-					<div id="right" > <!-- right div start -->
+					<div id="top_right" > <!-- right div start -->
 						<?  if( $ch_branch == 'y'){ ?>
 						<label for="sex" class="col-lg-2 control-label">
 							지점 :
