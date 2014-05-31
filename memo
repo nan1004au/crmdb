@@ -1,0 +1,11 @@
+이름 ch_name 
+나이 ch_age 
+성별 ch_sex
+날짜 ch_day
+시간 ch_time
+연락처 ch_phone
+종류/가격 ch_price
+지점 ch_branch
+이메일 ch_email
+사연/문의 ch_story
+진료종류 ch_group

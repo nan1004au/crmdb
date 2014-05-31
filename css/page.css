@@ -1,0 +1,50 @@
+body,ul,ol,li,dl,dt,dd,p,h1,h2,h3,h4,h5,h6,input { 
+	margin:0; padding:0; 
+}	
+.menu { 
+	background:#FF9900;
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	z-index:1030; 
+	height:120px;
+}
+
+#event_box {
+	width:400px;
+}
+
+#event_box input{ 
+	width:30px;
+}
+
+#event_box label{ 
+	width:400px;
+	display:block;
+}
+
+#time {width:150px;}
+.txt-size {height:25px;}
+
+ul,ol { list-style:none; }
+
+#content {
+	margin:0 auto;
+	width:800px;
+}
+#align{
+width:100%;
+}
+
+.price{
+color:red;
+	  font-weight:bold;
+	  font-size:18px;
+}
+
+
+#top_img{
+	margin-bottom:20px;
+	margin-top:10px;
+}

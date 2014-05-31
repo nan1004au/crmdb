@@ -1,0 +1,13 @@
+
+#admin_form div{
+	margin-bottom:20px;
+}
+td{
+	font-size:12px;
+	font-family-korean: "맑은 고딕", "Malgun Gothic", "나눔고딕", NanumGothic, "돋움", dotum, "Georgia Pro", Arial;
+}
+
+.replace{
+	display:none;
+}
+

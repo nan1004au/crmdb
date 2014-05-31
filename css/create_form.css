@@ -1,0 +1,15 @@
+.form_img{
+	display:inline;
+	width:150px;
+	transition: 0.3s all ease;
+}
+
+.form_img:hover{
+/*
+	border-style:dotted;
+	border-width:3px;
+	*/
+	width:150px;
+	transition: 0.3s all ease;
+
+}

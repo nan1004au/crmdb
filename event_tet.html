@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+body,ul,ol,li,dl,dt,dd,p,h1,h2,h3,h4,h5,h6,input { margin:0; padding:0; }
+#tbt {background-image:url(images/bgbg.jpg); color:#FFFFFF; font-weight:bold; padding-top:20px;}
+#time {width:150px;}
+.txt-size {height:25px;}
+</style>
+</head>
+
+<body>
+<div id="tbt">
+<form action="form_pr.php" method="post" name="form">
+
+<!-- 이부분은 꼭 넣어 주셔야 합니다. -->
+<input type="hidden" name="event_name", value="종아리퇴축술" />
+<input type="hidden" name="prev_url", value="" />
+<!-- 여기까지 -->
+
+
+   <input type="hidden" name="user_agent", value="컴퓨터" />
+   <table width="1028" border="0" style="border-collapse:collapse; margin:0px; padding:10px; border-left-width:0px; border-right-width:0px; margin: auto; margin-left: expression(((document.body.clientWidth&gt;800) ? ((document.body.clientWidth-800)/2) : 0) + ; font-size: 12px; font-weight: bold;"px"); ">
+
+      <tr>
+	 <td width="63" height="36" class="bottom_border">*&nbsp;이름<span style="text-align: center"></span><span style="text-align: left"></span><span style="text-align: center"></span><span style="text-align: right"></span><span style="text-align: justify"></span></td>
+	 <td width="198" class="bottom_border"> <input class="txt-size" type="text" name="name" /></td>
+	 <td width="137" class="bottom_border">&nbsp;&nbsp;통화가능시간</td>
+	 <td width="427" class="bottom_border"><select class="txt-size" id="time" name="time">
+	   <option value="">::시간선택::</option>
+	   <option value="항시가능">항시가능</option>
+	   <option value="09시~10시">09시~10시</option>
+	   <option value="10시~11시">10시~11시</option>
+	   <option value="11시~12시">11시~12시</option>
+	   <option value="12시~13시">12시~13시</option>
+	   <option value="13시~14시">13시~14시</option>
+	   <option value="14시~15시">14시~15시</option>
+	   <option value="15시~16시">15시~16시</option>
+	   <option value="16시~17시">16시~17시</option>
+	   <option value="17시~18시">17시~18시</option>
+	   <option value="18시이후">18시이후</option>
+	   </select></td>
+	 <td width="181" class="bottom_border">&nbsp;</td>
+     </tr>
+      <tr>
+	 <td height="59" class="bottom_border">&nbsp;&nbsp;나이</td>
+	 <td class="bottom_border"><input class="txt-size" name="age" type="text" value="" /></td>
+	 <td class="bottom_border">*&nbsp;이벤트 신청<br />
+	   &nbsp;&nbsp;(중복체크가능)</td>
+	 <td class="bottom_border"><input type="checkbox" name="event[]" value="안면윤곽" />
+안면윤곽
+  <input type="checkbox" name="event[]" value="지방흡입" />
+지방흡입
+<input type="checkbox" name="event[]" value="지방이식" />
+지방이식
+<input type="checkbox" name="event[]" value="가슴성형" />
+가슴성형
+<input type="checkbox" name="event[]" value="눈성형" />
+눈성형 <br />
+<input type="checkbox" name="event[]" value="모발이식" />
+모발이식
+<input type="checkbox" name="event[]" value="보톡스" />
+보톡스 &nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="event[]" value="필러" />
+필러&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="event[]" value="코성형" />
+코성형 </td>
+	 <td class="bottom_border">&nbsp;</td>
+      </tr>
+      <tr>
+        <td height="84" class="bottom_border">*&nbsp;연락처</td>
+        <td class="bottom_border"><input class="txt-size" type="text" name="phone" /></td>
+        <td class="bottom_border">&nbsp;&nbsp;기타문의</td>
+        <td class="bottom_border"><textarea rows="5" cols="50" name="etc"></textarea></td>
+        <td class="bottom_border"><a href="javascript:document.form.submit();"><img src="images/free.png" border="0" /></a></td>
+      </tr>
+  </table>
+   <div style="margin:0px;padding:10px;border-left-width:0px;border-right-width:0px;margin: auto; margin-left: expression(((document.body.clientWidth>800) ? ((document.body.clientWidth-800)/2) : 0) + "px"); ">
+   </div>
+      <div style="text-align:center;">
+</div>
+</form>
+</body>
+</html>
