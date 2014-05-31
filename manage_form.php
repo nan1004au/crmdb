@@ -12,7 +12,7 @@ if(!isset($_SESSION["user_id"])){
 	include("config.php");
 	include("db.php");
 	include("include/menu.php");
-	$query_event_form = "select * from $table_name_event_form";
+	$query_event_form = "select * from $table_name_event_form order by c_date desc";
 	$result_event_form = mysqli_query($connect, $query_event_form);
 ?>
 
