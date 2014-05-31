@@ -7,21 +7,16 @@ include_once("../../include/page.php");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all" />
-	<script type="text/javascript" src="../../js/jquery.alphanumeric.js"></script>
-	<script type="text/javascript" src="../../js/date.js"></script>
-	<Script type="text/javascript" src="js/pop.js"></script> 
+	<?include_once("../../include/head_include.php");?>
 	<link rel="stylesheet" href="css/index.css" type="text/css" media="all" />
 </head>
+
 <body>
 	<!-- 상단 고정되어 들어가는 부분 -->
 	<div class="menu" id="gnb_wrp" style="height:100px;"> <!-- menu div start --> 
 		<div id="tbt"style="width:100%;margin:0 auto;height:110px;margin-bottom:0px;padding-bottom:10px"> <!-- tbt div start --> 
 <div style="margin:0 auto;width:800px;float:left">
-			<form action="../../form_pr.php" method="post" id="pop_form" name="form">
+			<form action="../../form_pr.php" method="post" id="db_form" name="form">
 				<!-- 이부분은 꼭 넣어 주셔야 합니다. -->
 				<input type="hidden" name="event_name" id="event_name" value="<?=$event_title?>" />
 				<input type="hidden" name="prev_url" id="prev_url" value="" />
@@ -88,6 +83,7 @@ include_once("../../include/page.php");
 							지점 :
 						</label>
 						<select style="margin-left:59px;width:200px" class="form-control"  name="branch">
+								<option value="">지점 선택</option>
 							<?
 								$query = "select * from $table_name_branch";
 								$result_branch = mysqli_query($connect, $query);
@@ -148,6 +144,11 @@ include_once("../../include/page.php");
 				<br />
 				<?}?>
 			</div> <!-- bottom div end --> 
+					<?if( $ch_agree == 'y'){?> <!-- 문의 사항 --> 
+					<div style="width:700px;text-align:right;">
+						<label style="width:150px; margin-left:10px"> 개인정보사용동의 <input type="checkbox" id="agree" name="agree" value="동의"></label>
+					</div>
+					<?}?>
 </div>
 		</div> <!-- tbt div end --> 
 	</div> <!-- menu div end --> 

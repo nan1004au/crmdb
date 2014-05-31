@@ -11,28 +11,18 @@ include_once("../../include/page.php");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
 <!-- 꼭 들어가야 하는 부분 시작 --> 
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="../../js/jquery.alphanumeric.js"></script>
-<Script type="text/javascript" src="../../js/pop.js"></script> 
-<script type="text/javascript" src="../../js/date.js"></script>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all" />
-<!-- 꼭 들어가야 하는 부분 끝 --> 
+<?include_once("../../include/head_include.php");?>
 <link href="../../dist/css/bootstrap.css" rel="stylesheet">
 <link href="css/page.css" rel="stylesheet">
-<!-- 꼭 들어가야 하는 부분 시작 --> 
-<title><?=$event_title?></title>
-<!-- 꼭 들어가야 하는 부분 시작 --> 
+
 
 </head>
 <body>
 	<div id="align">
 		<div id="content">
 			<div class="form-group">
-				<form action="../../form_pr.php" class="form-horizontal" method="post" id="pop_form" name="form">
+				<form action="../../form_pr.php" class="form-horizontal" method="post" id="db_form" name="form">
 					<!-- 꼭 들어가야 하는 부분 시작 --> 
 					<input type="hidden" name="event_name" id="event_name" value="<?=$event_title?>" /> <!-- 이벤트명 --> 
 					<input type="hidden" name="prev_url" id="prev_url" value="" /> <!-- 유입경로 --> 
@@ -109,7 +99,8 @@ include_once("../../include/page.php");
 							<label style="width:150px;" for="branch" class="col-lg-2 control-label">
 								지점 :
 							</label>
-							<select style="width:200px" class="form-control input-sm"  name="branch">
+							<select style="width:200px" class="form-control input-sm" id="branch"  name="branch">
+								<option value="">지점 선택</option>
 
 							<?  $query = "select * from $table_name_branch";
 								$result_branch = mysqli_query($connect, $query);
@@ -164,6 +155,7 @@ include_once("../../include/page.php");
 					<textarea style="width:580px" class="form-control " id="etc" rows="3" cols="100" name="etc"></textarea>
 					<br />
 					<?}?>
+
 					<?if( $ch_agree == 'y'){?> <!-- 문의 사항 --> 
 					<div style="width:700px;text-align:right;">
 						<label style="width:150px; margin-left:10px"> 개인정보사용동의 <input type="checkbox" id="agree" name="agree" value="동의"></label>
