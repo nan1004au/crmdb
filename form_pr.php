@@ -50,14 +50,16 @@ $j_category= $_POST['j_category'];
 $event= $_POST['event_sel'];
 $email= $_POST['email'];
 $j_group= $_POST['j_group'];
+$agree= $_POST['agree'];
 
 echo $event . "::<br />";
 
-$query = "insert into $table_name_db(name, age, phone, time, event, etc,sex,r_date,branch,email,j_category,j_group, event_name, prev_url, user_agent) values('$name', $age, '$phone', '$time', '$event', '$etc','$sex','$r_date','$branch','$email','$j_category','$j_group' ,'$event_name', '$prev_url', '$user_agent') "; 
+$query = "insert into $table_name_db(name, age, phone, time, event, etc,sex,r_date,branch,email,j_category,j_group, agree, event_name, prev_url, user_agent) values('$name', $age, '$phone', '$time', '$event', '$etc','$sex','$r_date','$branch','$email','$j_category','$j_group','$agree' ,'$event_name', '$prev_url', '$user_agent') "; 
 
 if(mysqli_query($connect, $query)){
+	echo $query  ;
 }else{
-//       echo 'Query is non-corrected : ' .mysql_error();
+       echo 'Query is non-corrected : ' .mysql_error($connect);
 }
 
 echo "<script>location.replace('free.php');</script>";

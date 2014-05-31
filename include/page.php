@@ -26,6 +26,7 @@ $ch_email =$row_form['ch_email'];
 $ch_story =$row_form['ch_story'];
 $ch_group =$row_form['ch_group'];
 $ch_price =$row_form['ch_price'];
+$ch_agree=$row_form['ch_agree'];
 
 $two = false;
 if($event_form_type== "중간폼"){

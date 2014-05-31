@@ -238,6 +238,7 @@ while($row = mysqli_fetch_array($result)){
 	  <strong>나이 : </strong><?echo $row['age'];?> <br />
 	  <strong>성별 : </strong><?echo $row['sex'];?> <br />
 	  <strong>이메일 : </strong><?echo $row['email'];?> <br />
+	  <strong>정보동의 : </strong><?echo $row['agree'];?> <br />
 	   </td>
 
 

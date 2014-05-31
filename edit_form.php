@@ -192,7 +192,7 @@ display:none;
 						<label style="width:100px; margin-left:10px"> <input type="checkbox" id="ch_email" name="ch_email" value="ch_email"> 이메일 </label>
 						<label style="width:100px; margin-left:10px"> <input type="checkbox" id="ch_story" name="ch_story" value="ch_story"> 사연 </label>
 						<label style="width:100px; margin-left:10px"> <input type="checkbox" id="ch_group" name="ch_group" value="ch_group"> 진료선택 </label>
-						<label style="width:100px; margin-left:10px"> <input type="checkbox" id="ch_agree" name="ch_agree" value="ch_agree"> 개인정보동의</label>
+						<label style="width:150px; margin-left:10px"> <input type="checkbox" id="ch_agree" name="ch_agree" value="ch_agree"> 개인정보동의</label>
 					</div>
 				</div>
 			</div>

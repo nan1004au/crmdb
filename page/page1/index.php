@@ -2,37 +2,7 @@
 <?
 include_once("../../config.php");
 include_once("../../db.php");
-$id = $_GET['id'];
-$query_event_form = "select * from $table_name_event_form where id like '$id'";
-$query_event_list = "select * from $table_name_event_list where event_id like '$id'";
-$result_event_form = mysqli_query($connect, $query_event_form);
-$result_event_list = mysqli_query($connect, $query_event_list);
-$row_form = mysqli_fetch_array($result_event_form);
-$event_form_type = $row_form['form_type'];
-$event_id  = $row_form['id'];
-$event_title = $row_form['title'];
-$event_img_01 = $row_form['img_hash_01'];
-$event_img_02 = $row_form['img_hash_02'];
-$j_group = $row_form['category']; // 분류 가져오기 
-
-//체크박스 처리 
-$ch_name = $row_form['ch_name'];
-$ch_age = $row_form['ch_age'];
-$ch_sex =$row_form['ch_sex'];
-$ch_day =$row_form['ch_day'];
-$ch_time = $row_form['ch_time'];
-$ch_phone =$row_form['ch_phone'];
-$ch_price =$row_form['ch_price'];
-$ch_branch = $row_form['ch_branch'];
-$ch_email =$row_form['ch_email'];
-$ch_story =$row_form['ch_story'];
-$ch_group =$row_form['ch_group'];
-$ch_price =$row_form['ch_price'];
-$ch_story=$row_form['ch_story'];
-$two = false;
-if($event_form_type== "중간폼"){
-	$two = true;
-}
+include_once("../../include/page.php");
 ?>
 
 <!-- 꼭 들어가야 하는 부분 끝 --> 
@@ -48,41 +18,11 @@ if($event_form_type== "중간폼"){
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="../../js/jquery.alphanumeric.js"></script>
 <Script type="text/javascript" src="../../js/pop.js"></script> 
-<script type="text/javascript">
-	$(function() {
-		var dates = $( "#r_date" ).datepicker({
-		prevText: '이전 달',
-		nextText: '다음 달',
-		monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-		monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-		dayNames: ['일','월','화','수','목','금','토'],
-		dayNamesShort: ['일','월','화','수','목','금','토'],
-		dayNamesMin: ['일','월','화','수','목','금','토'],
-		dateFormat: 'yy-mm-dd',
-		showMonthAfterYear: true,
-		yearSuffix: '년',
-		onSelect: function( selectedDate ) {
-			var option = this.id == "from" ? "minDate" : "maxDate",
-			instance = $( this ).data( "datepicker" ),
-			date = $.datepicker.parseDate(
-				instance.settings.dateFormat ||
-				$.datepicker._defaults.dateFormat,
-				selectedDate, instance.settings );
-				dates.not( this ).datepicker( "option", option, date
-				);
-			}
-		});
-	});
-</script>
-
+<script type="text/javascript" src="../../js/date.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all" />
 <!-- 꼭 들어가야 하는 부분 끝 --> 
-
-
-
 <link href="../../dist/css/bootstrap.css" rel="stylesheet">
 <link href="css/page.css" rel="stylesheet">
-
 <!-- 꼭 들어가야 하는 부분 시작 --> 
 <title><?=$event_title?></title>
 <!-- 꼭 들어가야 하는 부분 시작 --> 
@@ -99,8 +39,6 @@ if($event_form_type== "중간폼"){
 					<input type="hidden" name="user_agent" id="user_agent" value="컴퓨터" /> <!-- 접속기기 --> 
 					<input type="hidden" name="j_group" id="j_group" value="<?=$j_group?>" /> <!-- 분류 --> 
 					<!-- 꼭 들어가야 하는 부분 끝 --> 
-
-
 
 					<div style="text-align:center">
 						<img id="top_img" src="../../page/img/<?echo $event_img_01?>" > <!-- 첫번째 첨 부 이미지 --> 
@@ -225,15 +163,17 @@ if($event_form_type== "중간폼"){
 					</label>
 					<textarea style="width:580px" class="form-control " id="etc" rows="3" cols="100" name="etc"></textarea>
 					<br />
+					<?}?>
+					<?if( $ch_agree == 'y'){?> <!-- 문의 사항 --> 
 					<div style="width:700px;text-align:right;">
-						<label style="width:150px; margin-left:10px"> 개인정보사용동의 <input type="checkbox" id="ch_agree" name="ch_agree" value="ch_agree"></label>
+						<label style="width:150px; margin-left:10px"> 개인정보사용동의 <input type="checkbox" id="agree" name="agree" value="동의"></label>
 					</div>
+					<?}?>
 					<div style="text-align:center">
 						<input type="button" style="margin-right:200px;width:200px" value="무료상담신청" border="0" id="btn-submit" class="btn btn-primary btn-lg"/>
 						</form>
 						<br />
 						<br />
-						<?}?>
 					</div> <!-- bottom end -->
 				</div>
 				<? if ( $two  == true){ ?>
