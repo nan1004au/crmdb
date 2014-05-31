@@ -57,7 +57,6 @@ echo $event . "::<br />";
 $query = "insert into $table_name_db(name, age, phone, time, event, etc,sex,r_date,branch,email,j_category,j_group, agree, event_name, prev_url, user_agent) values('$name', $age, '$phone', '$time', '$event', '$etc','$sex','$r_date','$branch','$email','$j_category','$j_group','$agree' ,'$event_name', '$prev_url', '$user_agent') "; 
 
 if(mysqli_query($connect, $query)){
-	echo $query  ;
 }else{
        echo 'Query is non-corrected : ' .mysql_error($connect);
 }
