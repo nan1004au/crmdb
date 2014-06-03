@@ -142,8 +142,6 @@ if(!isset($_SESSION["user_id"])){
 <script src="../../dist/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
 <?
 	include("db_close.php");
 }

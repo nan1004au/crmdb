@@ -1,7 +1,7 @@
 
 
 SQL 
-ha_db_admin | CREATE TABLE `ha_db_admin` (
+ CREATE TABLE `ha_db_admin` (
 `idx` int(10) NOT NULL AUTO_INCREMENT,
 `company_name` varchar(20) NOT NULL,
 `user_id` varchar(20) NOT NULL,
@@ -16,7 +16,7 @@ ha_db_branch | CREATE TABLE `ha_db_branch` (
 PRIMARY KEY (`idx`)
 ) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
-ha_db_client | CREATE TABLE `ha_db_client` (
+CREATE TABLE `ha_db_client` (
 `idx` int(10) NOT NULL AUTO_INCREMENT,
 `name` varchar(50) NOT NULL,
 `age` int(11) DEFAULT NULL,
@@ -41,7 +41,7 @@ ha_db_client | CREATE TABLE `ha_db_client` (
 PRIMARY KEY (`idx`)
 ) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
-ha_db_event_form | CREATE TABLE `ha_db_event_form` (
+CREATE TABLE `ha_db_event_form` (
 `idx` int(10) NOT NULL AUTO_INCREMENT,
 `id` varchar(50) NOT NULL,
 `title` varchar(50) NOT NULL,
@@ -66,7 +66,7 @@ ha_db_event_form | CREATE TABLE `ha_db_event_form` (
 PRIMARY KEY (`idx`)
 ) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
 
-ha_db_event_list | CREATE TABLE `ha_db_event_list` (
+CREATE TABLE `ha_db_event_list` (
 `idx` int(10) NOT NULL AUTO_INCREMENT,
 `event_id` varchar(50) NOT NULL,
 `name` varchar(50) NOT NULL,
@@ -77,7 +77,7 @@ PRIMARY KEY (`idx`)
 
 
 
-ha_db_j_category | CREATE TABLE `ha_db_j_category` (
+CREATE TABLE `ha_db_j_category` (
 `idx` int(10) NOT NULL AUTO_INCREMENT,
 `name` varchar(20) NOT NULL,
 `c_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -85,10 +85,14 @@ PRIMARY KEY (`idx`)
 ) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 
-ha_db_member | CREATE TABLE `ha_db_member` (
+CREATE TABLE `ha_db_member` (
 `idx` int(10) NOT NULL AUTO_INCREMENT,
 `user_id` char(15) NOT NULL,
 `pass` varchar(32) NOT NULL,
 `company_name` varchar(20) NOT NULL,
+`branch` varchar(20) NOT NULL,
 PRIMARY KEY (`idx`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8
+
+
+

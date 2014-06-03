@@ -316,5 +316,48 @@ else if($flag == "del_branch"){
 	$result = mysqli_query($connect, $query);
 	echo $query;
 }
+else if($flag == "member_add"){
+	$user_id = $_GET['member_add_id'];
+	$pass = $_GET['member_add_pass'];
+	$pass_c = md5($pass);
+	$branch= $_GET['member_add_branch'];
+	if(user_id_duplication_check($user_id)){
+		$query = "insert into $table_name_member(user_id,pass,branch) values('$user_id', '$pass_c', '$branch')";
+		mysqli_query($connect , $query);
+		echo "ok";
+	}
+
+
+}else if ($flag == "del_member"){
+	$data = $_GET['data'];
+	$query = "delete from  $table_name_member where idx=$data" ;
+	$result = mysqli_query($connect, $query);
+	echo $query;
+}
+
+else if($flag == "edit_member_branch"){
+	$data1 = $_GET['data1'];
+	$data2 = $_GET['data2'];
+	$query = " update $table_name_member  set branch='$data2' where user_id like '".$data1 ."'" ;
+	$result = mysqli_query($connect, $query);
+	echo $query;
+}
+
+function user_id_duplication_check($user_id){
+	global $table_name_member;
+	global $connect;
+	$query = "select * from $table_name_member where user_id like '$user_id'";
+	$result = mysqli_query($connect , $query);
+	$count=mysqli_num_rows($result);
+	if($count >  0){
+		return false;
+	}else{
+		return true;
+	}
+
+}
+
+
 include("db_close.php");
+
 ?>

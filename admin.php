@@ -74,6 +74,78 @@ if(!isset($_SESSION["user_id"])){
 						<button  type="button" id="btn-user-pass"  class="btn btn-default">비밀번호  수정 </button>
 					</div>
 
+
+					<label for="exampleInputEmail1">아이디</label>
+					<table class="table table-bordered" style="font-size:11px;width:500px">
+					<tr>
+						 <th>순번</th>
+						 <th>아이디</th>
+						 <th>지점</th>
+						 <th>기능</th>
+					</tr>
+					<?
+					$query = "select * from $table_name_member";
+					$i=1;
+					$result_member= mysqli_query($connect, $query);
+					while($row_member= mysqli_fetch_array($result_member))
+					{
+						echo "<tr>";
+						echo "<td>" . $i . "</td>";
+						echo "<td><label id=\"label-member-id-" .  $row_member['idx'] ."\">" . $row_member['user_id'] . "</label></td>";
+						echo "<td>";
+
+							$query = "select * from $table_name_branch";
+							$result_member_branch= mysqli_query($connect, $query);
+						?>
+						<select id="select-member-branch-<?=$row_member['idx']?>" class="form-control input-sm" style="display:inline;width:120px" name="">
+						<?
+						while($row_member_branch = mysqli_fetch_array($result_member_branch)){
+							if($row_member_branch['name'] == $row_member['branch']){
+								$selected = " selected ";
+							}
+							echo '<option value="'. $row_member_branch['name'] . '"'.$selected .' >' . $row_member_branch['name'] . '</option>';
+							$selected = "";
+						}
+						?>
+						</td>
+
+						</select>
+	
+						<td>
+							<a href="#" class="btn-member-pass" id="btn-branch-del-<?=$row_member['idx']?>" >비밀번호변경</a>  /
+							<a href="#" class="btn-member-edit-branch" id="btn-member-edit-branch-<?=$row_member['idx']?>" >지점관리</a>  /
+							<a href="#" class="btn-member-del" id="btn-member-del-<?=$row_member['idx']?>" >삭제</a> 
+							
+						</td>
+					<?
+						echo "</tr>";
+						$i++;
+					}?>
+					</table>
+
+					<label for="exampleInputEmail1">아이디추가</label>
+					<div class = "form-inline">
+						<input type="text"  style="width:120px" class="form-control" name="text-branch-add"  id="member_add_id" placeholder=" 아이디 입력">
+						<input type="password"  style="width:100px" class="form-control" name="text-branch-add"  id="member_add_pass_1" placeholder="비밀번호">
+						<input type="password"  style="width:100px" class="form-control" name="text-branch-add"  id="member_add_pass_2" placeholder="비밀번호">
+						<?
+							$query = "select * from $table_name_branch";
+							$result_member_branch= mysqli_query($connect, $query);
+						?>
+						<select id="member_add_branch" class="form-control" style="display:inline;width:120px" name="">
+						<?
+						while($row_member_branch = mysqli_fetch_array($result_member_branch)){
+							echo '<option value="'. $row_member_branch['name'] . '">' . $row_member_branch['name'] . '</option>';
+						}
+						?>
+
+						</select>
+						<button  type="button" id="btn-member-add" class="btn btn-default">아이디추가 </button>
+					</div>
+
+
+
+
 					<label for="exampleInputEmail1">지점</label>
 					<table class="table table-bordered" style="font-size:11px;width:400px">
 					<tr>
@@ -135,7 +207,9 @@ if(!isset($_SESSION["user_id"])){
 					</div>
 				</div>
 			</div>
-		<!-- Bootstrap core JavaScript
+
+
+	<!-- Bootstrap core JavaScript
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="assets/js/jquery.js"></script>
