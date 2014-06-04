@@ -343,6 +343,15 @@ else if($flag == "edit_member_branch"){
 	echo $query;
 }
 
+else if($flag == "edit_member_pass"){
+	$pass1 = $_POST['pass1'];
+	$pass_c = md5($pass1);
+	$user_id = $_POST['user_id'];
+	$query = " update $table_name_member  set pass='$pass_c' where user_id like '".$user_id."'" ;
+	$result = mysqli_query($connect, $query);
+	echo "<script>alert('변경되었습니다'); self.opener = self ; self.close() ;</script>";
+}
+
 function user_id_duplication_check($user_id){
 	global $table_name_member;
 	global $connect;

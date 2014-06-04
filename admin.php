@@ -22,6 +22,8 @@ if(!isset($_SESSION["user_id"])){
 		<head>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 		<script type="text/javascript" src="js/admin.js"></script>
+		<script language="javascript"> 
+		</script>
 		<link rel="stylesheet" type="text/css" href="css/create_form.css" />
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -112,7 +114,7 @@ if(!isset($_SESSION["user_id"])){
 						</select>
 	
 						<td>
-							<a href="#" class="btn-member-pass" id="btn-branch-del-<?=$row_member['idx']?>" >비밀번호변경</a>  /
+							<a href="#" class="btn-member-pass" id="btn-member-pass-<?=$row_member['idx']?>" >비밀번호변경</a>  /
 							<a href="#" class="btn-member-edit-branch" id="btn-member-edit-branch-<?=$row_member['idx']?>" >지점관리</a>  /
 							<a href="#" class="btn-member-del" id="btn-member-del-<?=$row_member['idx']?>" >삭제</a> 
 							

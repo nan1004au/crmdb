@@ -47,6 +47,13 @@ $(document).ready(function(){
 		data_edit2('edit_member_branch',data1, data2 );
 	}); 
 
+	$('.btn-member-pass').click(function(event){
+		id =  event.target.id;
+		var res = id.replace("btn-member-pass-", ""); 
+		var user_id= $("#label-member-id-" + res).text(); 
+		window.open("pass.php?user_id="+user_id, "pop", "width=400, height=300, history=no,resizable=no,status=no,scrollbars=yes,menubar=no")
+	}); 
+
 	$('#btn-member-add').click(function(){
 		member_id = $('#member_add_id').val();
 		member_pass1= $('#member_add_pass_1').val();
