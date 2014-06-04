@@ -1,0 +1,75 @@
+.container{
+	width:1200px;
+	margin:0 auto;
+}
+
+
+.nav-con{
+	width:100%;
+	height:100px;
+	background-color:#000000;
+}
+.nav{
+	padding-top:40px;
+	margin-left:200px;
+}
+.menu-title{
+	float: left;
+}
+.menu {
+	    list-style:none;
+		margin:0;
+		padding:0;
+}
+
+.menu li{
+	margin-left:10px;
+	margin-right:10px;
+	float: left;
+}
+
+#logout_txt{
+	margin-left:750px;
+}
+.nav a{font-size:15px;}
+.nav a:link {text-decoration: none; color: #FFFFFF;}
+.nav a:visited {text-decoration: none; color: #FFFFFF;}
+.nav a:active {text-decoration: none; color: #FFFFFF;}
+.nav a:hover {text-decoration: underline; color: red;}
+
+.act{
+	color:red;
+}
+.act a{font-size:15px;}
+.act a:link {text-decoration: none; color: red;}
+.act a:visited {text-decoration: none; color: red;}
+.act a:active {text-decoration: none; color: red;}
+.act a:hover {text-decoration: underline; color: red;}
+
+
+
+input[type="button"], button[type="button"], button[type="submit"]{
+	height: 24px;
+	border-width:1px;
+	border-color:black;
+	border-style:solid;
+
+}
+
+select {
+	height: 24px;
+	border-width:1px;
+	border-color:black;
+	border-style:solid;
+	margin-left:5px;
+}
+
+input[type="password"],input[type="text"]{
+	height: 20px;
+	border-width:1px;
+	border-color:black;
+	border-style:solid;
+}
+
+
+

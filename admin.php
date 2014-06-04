@@ -36,6 +36,7 @@ if(!isset($_SESSION["user_id"])){
 			<!-- Custom styles for this template -->
 		<link href="starter-template.css" rel="stylesheet">
 		<link href="css/admin.css" rel="stylesheet">
+		<link href="css/all.css" rel="stylesheet">
 			<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 			<!--[if lt IE 9]>
 			<script src="../../assets/js/html5shiv.js"></script>
@@ -44,18 +45,7 @@ if(!isset($_SESSION["user_id"])){
 		<script type="text/javascript" src="js/all.js"></script>
 		</head>
 		<body>
-		<div class="navbar navbar-inverse navbar-fixed-top">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<a class="navbar-brand" href="#"><?=$config_title?> DB</a>
-				</div>
 				<?menu_print("설정");?>
-				</div>
-			</div>
 		<div class="container">
 			<div class="starter-template">
 				<br /><br />
@@ -66,16 +56,16 @@ if(!isset($_SESSION["user_id"])){
 
 					<label for="exampleInputEmail1">회사명</label>
 					<div class = "form-inline bottom">
-						<input type="text"  style="width:300px;" value="<?=$config_title?>" class="form-control" name="text-company-edit"  id="text-company-edit" placeholder="이벤트  아이디을 입력해 주세요">
-						<button  type="button" id="btn-company-name"  class="btn btn-default">회사명 수정 </button>
+						<input type="text"  style="width:300px;margin-right:10px" value="<?=$config_title?>" class="" name="text-company-edit"  id="text-company-edit" placeholder="이벤트  아이디을 입력해 주세요">
+						<button  type="button" id="btn-company-name"  class="">회사명 수정 </button>
 					</div>
 
 					<label for="exampleInputEmail1"> <?= $_SESSION["user_id"]?> 비밀번호 변경</label>
 				
 					<div class = "form-inline">
-						<input type="password" id="pass1" style="width:100px;" class="form-control" placeholder="비밀번호를 입력해 주세요" id="pass"> 
-						<input type="password" id="pass2" style="width:100px;" class="form-control" placeholder="비밀번호를 입력해 주세요" id="pass">
-						<button  type="button" id="btn-user-pass"  class="btn btn-default">비밀번호  수정 </button>
+						<input type="password" id="pass1" style="width:100px;" class="" placeholder="비밀번호를 입력해 주세요" id="pass"> 
+						<input type="password" id="pass2" style="width:100px;margin-right:10px" class="" placeholder="비밀번호를 입력해 주세요" id="pass">
+						<button  type="button" id="btn-user-pass"  class="">비밀번호  수정 </button>
 					</div>
 
 				<?
@@ -132,14 +122,14 @@ if(!isset($_SESSION["user_id"])){
 
 					<label for="exampleInputEmail1">아이디추가</label>
 					<div class = "form-inline">
-						<input type="text"  style="width:120px" class="form-control" name="text-branch-add"  id="member_add_id" placeholder=" 아이디 입력">
-						<input type="password"  style="width:100px" class="form-control" name="text-branch-add"  id="member_add_pass_1" placeholder="비밀번호">
-						<input type="password"  style="width:100px" class="form-control" name="text-branch-add"  id="member_add_pass_2" placeholder="비밀번호">
+						<input type="text"  style="width:120px" class="" name="text-branch-add"  id="member_add_id" placeholder=" 아이디 입력">
+						<input type="password"  style="width:100px" class="" name="text-branch-add"  id="member_add_pass_1" placeholder="비밀번호">
+						<input type="password"  style="width:100px" class="" name="text-branch-add"  id="member_add_pass_2" placeholder="비밀번호">
 						<?
 							$query = "select * from $table_name_branch";
 							$result_member_branch= mysqli_query($connect, $query);
 						?>
-						<select id="member_add_branch" class="form-control" style="display:inline;width:120px" name="">
+						<select id="member_add_branch" class="" style="display:inline;width:120px;margin-right:10px;" name="">
 						<?
 							echo '<option value="관리자">관리자</option>';
 						while($row_member_branch = mysqli_fetch_array($result_member_branch)){
@@ -148,7 +138,7 @@ if(!isset($_SESSION["user_id"])){
 						?>
 
 						</select>
-						<button  type="button" id="btn-member-add" class="btn btn-default">아이디추가 </button>
+						<button  type="button" id="btn-member-add" class="">아이디추가 </button>
 					</div>
 
 
@@ -181,8 +171,8 @@ if(!isset($_SESSION["user_id"])){
 
 					<label for="exampleInputEmail1">지점추가</label>
 					<div class = "form-inline">
-						<input type="text"  style="width:300px" class="form-control" name="text-branch-add"  id="text-branch-add" placeholder="이벤트  아이디을 입력해 주세요">
-						<button  type="submit" id="btn-branch-add" class="btn btn-default">지점추가 </button>
+						<input type="text"  style="width:300px;margin-right:10px" class="" name="text-branch-add"  id="text-branch-add" placeholder="이벤트  아이디을 입력해 주세요">
+						<button  type="submit" id="btn-branch-add" class="">지점추가 </button>
 					</div>
 
 					<label for="exampleInputEmail1">진료과목</label>
@@ -211,8 +201,8 @@ if(!isset($_SESSION["user_id"])){
 
 					<label for="exampleInputEmail1">진료과목 추가</label>
 					<div class = "form-inline">
-						<input type="text"  style="width:300px" class="form-control" name="text-j-category-add"  id="text-j-category-add" placeholder="이벤트  아이디을 입력해 주세요">
-						<button  type="submit"  id="btn-j-category-add" class="btn btn-default">진료과목 추가 </button>
+						<input type="text"  style="width:300px;margin-right:10px" class="" name="text-j-category-add"  id="text-j-category-add" placeholder="이벤트  아이디을 입력해 주세요">
+						<button  type="submit"  id="btn-j-category-add" class="">진료과목 추가 </button>
 					</div>
 				<?}?>
 				</div>

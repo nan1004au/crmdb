@@ -25,6 +25,7 @@ if(!isset($_SESSION["user_id"])){
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 		<script type="text/javascript" src="js/create_form.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/create_form.css" />
+		<link href="css/all.css" rel="stylesheet">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
@@ -58,23 +59,8 @@ display:none;
 		<body>
 
 
-		<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-		<div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		</button>
-	 <a class="navbar-brand" href="#"><?=$config_title?> DB</a>
-		</div>
-
-
 		<?menu_print("폼생성");?>
 
-
-		</div>
-		</div>
 		<div class="container">
 		<div class="starter-template">
 		<br /><br />
@@ -88,19 +74,16 @@ display:none;
 
 		<div class="form-group">
 		<label for="exampleInputEmail1">이벤트 제목</label>
-		<input type="text" style="width:300px;" class="form-control" name="event_title" id="event_title" placeholder="이벤트  제목을 입력해 주세요">
+		<input type="text" style="width:300px;display:block" class="" name="event_title" id="event_title" placeholder="이벤트  제목을 입력해 주세요">
 		</div>
 
 		<div class="form-group">
 			<label for="exampleInputEmail1">이벤트 아이디</label>
-			<input type="text"  style="width:300px;" class="form-control" name="event_id"  id="event_id" placeholder="이벤트  아이디을 입력해 주세요">
-			<span id="event_id_check">이벤트 아이디 중복체크</span>
-	
-
-			<p class="help-block">이벤트 주소로 사용되는 단어입니다 (http://xxx.co.kr/db/page.php?id=id)</p>
+			<input type="text"  style="width:300px;display:block" class="" name="event_id"  id="event_id" placeholder="이벤트  아이디을 입력해 주세요">
+			<br />
 
 			<label for="exampleInputEmail1">분류 </label>
-			<select style="width:100px;" id="cate" name = "cate"class="form-control">
+			<select style="width:100px;display:block" id="cate" name = "cate"class="">
 				<option value="일반" selected>일반</option>
 				<option value="체험단">체험단</option>
 				<option value="사연">사연</option>
@@ -134,7 +117,7 @@ display:none;
 		</div>
 		<label for="exampleInputEmail1">폼 스킨 </label>
 		<div class="form-group">
-			<select style="width:100px;" id="form_type" name = "form_type"class="form-control">
+			<select style="width:100px;display:block" id="form_type" name = "form_type"class="">
 		<?
 			$d= dir("page/");
 			while(false!==($entry = $d->read())){
@@ -168,24 +151,26 @@ display:none;
 				<div id="price_div_<?=$i?>">
 					<label style="width:80px;"  class="col-lg-2" for="exampleInputFile" id="event1" name="event1">종류 <?=$i?></label>
 
-					<input style="width:200px;"  class="col-lg-2 form-control" type="text" id="event<?=$i?>_name" name="event<?=$i?>_name"  placeholder="">
+					<input style="width:200px;"  class="col-lg-2 " type="text" id="event<?=$i?>_name" name="event<?=$i?>_name"  placeholder="">
 
 					<label  style="width:80px;" class="col-lg-2" for="exampleInputFile">가격 </label>
 
-					<input style="width:200px;" type="text" class="form-control" id="event<?=$i?>_name" name="event<?=$i?>_price" placeholder="">
+					<input style="width:200px;" type="text" class="" id="event<?=$i?>_name" name="event<?=$i?>_price" placeholder="">
 				</div>
 			<?}?>
-					<button type="button" id="btn-price" style="margin-left:500px;margin-top:20px;" class="btn btn-default">종류 추가</button>
-					<span id="span-price" style="margin-left:500px;margin-top:20px;" >종류는 10개까지 가능합니다</button>
+			<br />
+					<button type="button" id="btn-price" style="margin-left:500px;margin-top:20px;" class="">종류 추가</button>
+					<span id="span-price" style="margin-left:500px;margin-top:20px;" >종류는 10개까지 가능합니다</span>
 			</div>
 		</div>
 		<p class="help-block">* 종류에 "종아리퇴축술" 가격에 "88만원" 입력시에  "종아리퇴축술 88만원"</p>
 
-		<div class="form-group">
+		<div class="">
 		<label for="exampleInputEmail1">메모</label>
-		<textarea class="form-control" style="width:560px;" rows="3" id="event_comment" name="event_comment"></textarea>
+		<textarea class="" style="width:560px;" rows="3" id="event_comment" name="event_comment"></textarea>
 		</div>
-		<button type="submit" class="btn btn-default">이벤트 만들기</button>
+		<br />
+		<button type="submit" class="">이벤트 만들기</button>
 		</form>
 		</div>
 		</div>

@@ -40,7 +40,8 @@ if(!isset($_SESSION["user_id"])){
 	<link href="dist/css/bootstrap.css" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
-	<link href="starter-template.css" rel="stylesheet">
+	<link href="css/all.css" rel="stylesheet">
+
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -64,23 +65,16 @@ if(!isset($_SESSION["user_id"])){
 
 
 <div class="navbar navbar-inverse navbar-fixed-top">
-   <div class="container">
-      <div class="navbar-header">
-	 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	    <span class="icon-bar"></span>
-	    <span class="icon-bar"></span>
-	    <span class="icon-bar"></span>
-	 </button>
-	 <a class="navbar-brand" href="#"><?=$config_title?> DB</a>
-      </div>
 		<?menu_print("폼관리");?>
-
-   </div>
 </div>
 <div class="container">
    <div class="starter-template">
-      <br /><br />
-      <br /><br />
+   <br />
+   <br />
+   <br />
+   <br />
+   <br />
+   <br />
       <h1><?=$config_title?> DB 페이지입니다</h1>
       <div>
 	 <div>

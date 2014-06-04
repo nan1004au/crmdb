@@ -14,6 +14,7 @@ if(!isset($_SESSION["user_id"])){
 
 	include("config.php");
 	include("db.php");
+	include("include/menu.php");
 
 
 	$get_event_id = $_GET['event_id'];
@@ -95,6 +96,7 @@ if(!isset($_SESSION["user_id"])){
 		<!-- Custom styles for this template -->
 		<link href="starter-template.css" rel="stylesheet">
 
+		<link href="css/all.css" rel="stylesheet">
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 		<script src="../../assets/js/html5shiv.js"></script>
@@ -115,33 +117,10 @@ display:none;
 		</head>
 
 		<body>
+			
 
+<?menu_print("보고서");?>
 
-		<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-		<div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		</button>
-		 <a class="navbar-brand" href="#"><?=$config_title?> DB</a>
-		</div>
-		<div class="collapse navbar-collapse">
-		<ul class="nav navbar-nav">
-		<li><a href="#">홈</a></li>
-		<li><a href="report.php">보고서</a></li>
-		<li><a href="#analysis.php">분석</a></li>
-		<li class="active"><a href="create_form.php">폼생성</a></li>
-		<li><a href="manage_form.php">폼관리</a></li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-		<!-- <li><a href="#about" id="logout_txt">로그아웃</a></li> --!>
-		<li><br /><input type="button" id="logout_txt" class="btn btn-xs" value="로그아웃" /></li> 
-		</ul>
-		</div><!--/.nav-collapse -->
-		</div>
-		</div>
 		<div class="container">
 		<div class="starter-template">
 		<br /><br />
@@ -155,25 +134,23 @@ display:none;
 
 		<div class="form-group">
 		<label for="exampleInputEmail1">이벤트 제목</label>
-		<input type="text" style="width:300px;" class="form-control" name="event_title" id="event_title" value="<?=$event_title?>"  placeholder="이벤트  제목을 입력해 주세요">
+		<input type="text" style="width:300px;display:block" class="" name="event_title" id="event_title" value="<?=$event_title?>"  placeholder="이벤트  제목을 입력해 주세요">
 		</div>
 
 		<div class="form-group">
 			<label for="exampleInputEmail1">이벤트 아이디</label>
-			<input type="text"  style="width:300px;" class="form-control" name="event_id"  id="event_id" value="<?=$event_id?>" placeholder="이벤트  아이디을 입력해 주세요">
-			<span id="event_id_check">이벤트 아이디 중복체크</span>
-	
-
-			<p class="help-block">이벤트 주소로 사용되는 단어입니다 (http://xxx.co.kr/db/page.php?id=id)</p>
+			<input type="text"  style="width:300px;display:block" class="" name="event_id"  id="event_id" value="<?=$event_id?>" placeholder="이벤트  아이디을 입력해 주세요">
+			<br />
 
 			<label for="exampleInputEmail1">분류 </label>
-			<select style="width:100px;" id="cate" name = "cate"class="form-control">
+			<select style="width:100px;" id="cate" name = "cate"class="">
 				<option value="일반" <?echo $category == "일반" ? "selected" : ""?>>일반</option>
 				<option value="체험단"<?echo $category == "체험단" ? "selected" : ""?>>체험단</option>
 				<option value="사연"<?echo $category == "사연" ? "selected" : ""?>>사연</option>
 				<option value="기타"<?echo $category == "기타" ? "selected" : ""?>>기타</option>
 			</select>
 
+			<br />
 			<br />
 
 			<div class="panel panel-default" style="width:600px"> 
@@ -200,15 +177,12 @@ display:none;
 
 		</div>
 
-		<div class="form-group">
-			<img id="form_img_1" class="form_img" src="images/form_img_01.jpg" />
-			<img id="form_img_2" class="form_img" src="images/form_img_02.jpg" />
-			<img id="form_img_3" class="form_img" src="images/form_img_03.jpg" />
-			<img id="form_img_4" class="form_img" src="images/form_img_04.jpg" />
-		</div>
 
 		<div class="form-group">
-			<select style="width:100px;" id="form_type" name = "form_type"class="form-control">
+	<label for="exampleInputEmail1">스킨선택 </label>
+	<br />
+
+			<select style="width:100px;" id="form_type" name = "form_type"class="">
 		<?
 			$d= dir("page/");
 			while(false!==($entry = $d->read())){
@@ -219,6 +193,8 @@ display:none;
 
 		</select>
 
+		<br />
+		<br />
 
 		<div id="image_div_01" class="form-group">
 		<label for="exampleInputFile">이벤트 이미지 01 </label>
@@ -263,15 +239,14 @@ display:none;
 			?>
 				<div style=""id="price_div_<?=$i?>">
 					<label style="width:80px;"  class="col-lg-2" for="exampleInputFile" id="event1" name="event1">종류 <?=$i?></label>
-					<input style="width:200px;"  class="col-lg-2 form-control" type="text" id="event<?=$i?>_name" name="event<?=$i?>_name" value="<?=$l_name?>" placeholder="">
+					<input style="width:200px;"  class="col-lg-2 " type="text" id="event<?=$i?>_name" name="event<?=$i?>_name" value="<?=$l_name?>" placeholder="">
 					<label  style="width:80px;" class="col-lg-2" for="exampleInputFile">가격 </label>
-					<input style="width:200px;" type="text" class="form-control col-lg-2" id="event<?=$i?>_name" name="event<?=$i?>_price" value="<?=$l_price?>" placeholder=""> 
+					<input style="width:200px;" type="text" class=" col-lg-2" id="event<?=$i?>_name" name="event<?=$i?>_price" value="<?=$l_price?>" placeholder=""> 
 					<a href="#" id="price_del_<?=$i?>" class=""  href="">삭제</a>
 				</div>
-				<br />
 			<?}?>
-					<button type="button" id="btn-price" style="margin-left:500px;margin-top:20px;" class="btn btn-default">종류 추가</button>
-					<span id="span-price" style="margin-left:500px;margin-top:20px;" >종류는 10개까지 가능합니다</button>
+					<button type="button" id="btn-price" style="margin-left:500px;margin-top:20px;" class="">종류 추가</button>
+					<span id="span-price" style="margin-left:500px;margin-top:20px;" >종류는 10개까지 가능합니다</span>
 			</div>
 		</div>
 		<p class="help-block">* 종류에 "종아리퇴축술" 가격에 "88만원" 입력시에  "종아리퇴축술 88만원"</p>
@@ -280,7 +255,7 @@ display:none;
 		<label for="exampleInputEmail1">메모</label>
 		<textarea class="form-control" style="width:560px;" rows="3" id="event_comment" name="event_comment"><?=$event_comment?></textarea>
 		</div>
-		<button type="submit" class="btn btn-default">이벤트 수정</button>
+		<button type="submit" class="">이벤트 수정</button>
 		</form>
 		</div>
 		</div>

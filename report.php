@@ -91,7 +91,7 @@ $result = mysqli_query($connect, $query);
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="shortcut icon" href="../../assets/ico/favicon.png">
@@ -106,7 +106,8 @@ $result = mysqli_query($connect, $query);
 <link href="dist/css/bootstrap.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="starter-template.css" rel="stylesheet">
+<link href="css/all.css" rel="stylesheet">
+<link href="css/report.css" rel="stylesheet">
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
@@ -124,28 +125,16 @@ display:none;
 </style>
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#"><?=$config_title?> DB</a>
-		</div>
-		<?menu_print("보고서");?>
-	</div>
-</div>
+<?menu_print("보고서");?>
 <div class="container">
 	<div class="starter-template">
 	  <br /><br />
 	  <br /><br />
 	  <h1><?=$config_title?> DB 페이지입니다</h1>
 	<div>
-<div>
+<div class="">
 	<form class="form-inline" role="form" style="margin-bottom:5px; ">
-		<select style="width:200px;" id="en" class="form-control">
+		<select style="width:200px;" id="en" class="">
 		<?
 			echo "<option value=\"이벤트명\" $eventNameSelect >이벤트명</option>";
 			printSelectDistinct($connect, $table_name_db, "event_name", $ev);
@@ -155,7 +144,7 @@ display:none;
 	if($id_branch =="관리자"){ //관리자일 경우에는 지점을 출력해 준다 
 ?>
 	<!-- 지점별 --> 
-	<select style="width:100px;" id="branchFromSelect" class="form-control">
+	<select style="width:100px;" id="branchFromSelect" class="">
 	<?
 	echo  "<option value=\"지점별\" $branchNameSelect>지점별</option>";
 	printSelectDistinct($connect, $table_name_branch, "name", $br);
@@ -164,13 +153,13 @@ display:none;
 <?}?>
 
 	<!-- 지점별 --> 
-	<select style="width:100px;" id="categoryFromSelect" class="form-control">
+	<select style="width:100px;" id="categoryFromSelect" class="">
 	<?
 	echo  "<option value=\"분류별\" $categoryFromSelect>분류별</option>";
 	printSelectDistinct($connect, $table_name_db, "j_group", $ca);
 ?>
 	</select>
-	<select style="width:110px;" id="ch_list" class="form-control">
+	<select style="width:110px;" id="ch_list" class="">
 <?
 
 $ch_yes= "";
@@ -193,24 +182,22 @@ if(!strcmp($ch,"no_check")){
 
 
 <!-- 검색 창 --> 
-	<input type="textbox" id="sh_txt" value="<?echo $sh?>" class="form-control"  style="width:200px;" />
-	<input type="button" id="sh_btn" class="btn btn-default" value="검색"/>
-	<button type="button" id="excel_btn" class="btn btn-xs btn-default" >
-		 <span class="glyphicon glyphicon-floppy-save"></span> 엑셀로 다운로드
-	</button>
+	<input type="text" id="sh_txt" value="<?echo $sh?>" class=""  style="width:200px;" />
+	<input type="button" id="sh_btn" class="" value="검색"/>
+	<input type="button" id="excel_btn" class="" value="엑셀로 다운로드">
  </form>
  </div>
 
 <!-- 항목 테이블 시작 --> 
- <table class="table table-bordered" style="font-size:11px">
+ <table class="" style="font-size:11px">
 	<tr>
-	   <th style="width:50px;">번호</th>
-	   <th style="width:150px;">분류</th>
-	   <th style="width:100px;">이벤트명</th>
-	   <th style="width:100px;">지점</th>
-	   <th style="width:140px;">진료항목</th>
-	   <th style="width:150px;">진료선택</th>
-	   <th style="width:200px;">기본정보</th>
+	   <th style="width:30px;">번호</th>
+	   <th style="width:30px;">분류</th>
+	   <th style="width:80px;">이벤트명</th>
+	   <th style="width:80px;">지점</th>
+	   <th style="width:100px;">진료항목</th>
+	   <th style="width:100px;">진료선택</th>
+	   <th style="width:150px;">기본정보</th>
 	   <th style="width:140px;">문의&사연</th>
 	   <th style="width:150px;">메모</th>
 	   <th style="width:150px;">유입경로</th>
@@ -223,21 +210,21 @@ if(!strcmp($ch,"no_check")){
 while($row = mysqli_fetch_array($result)){
 ?>
 	<tr class="item ">
-	   <td>
+	   <td class="center">
 		<?echo $row['idx']; ?>
 	   </td>
 
-	   <td>
+	   <td class="center">
 		<?echo $row['j_group']; ?>
 	   </td>
-	   <td><?echo $row['event_name']; ?></td>
+	   <td class="center"><?echo $row['event_name']; ?></td>
 	   
-	   <td>
+	   <td class="center">
 		<?echo $row['branch']; ?>
 	   </td>
 
-	   <td><?echo $row['event']?></td>
-	   <td>
+	   <td class="center"><?echo $row['event']?></td>
+	   <td class="center">
 		<?echo $row['j_category']; ?>
 	   </td>
 
@@ -260,7 +247,7 @@ while($row = mysqli_fetch_array($result)){
 	  </div>
 	   </td>
 	   <td>
-	   <textarea id="memo_<?echo $row[idx]?>" class="form-control " name="memo[10931]" cols="10" rows="5" ><? echo $row[memo]?></textarea>
+	   <textarea id="memo_<?echo $row[idx]?>" class="" name="memo[10931]" cols="10" rows="5" ><? echo $row[memo]?></textarea>
 
 	   </td>
 	   <td>
@@ -291,24 +278,19 @@ while($row = mysqli_fetch_array($result)){
 	   </td>
 
 	   <td>
-<br />
 	  <input type="hidden" name="no" value="10931">
-	  <input type="button" value="수정" class="btn btn-warning btn-primary" id="memo_edit_<?echo $row[idx]?>" onclick="memo(this.id,$('#memo_<?echo $row[idx]?>').val(), <?echo $row[idx]?>)">
-<br />
-<br />
-	  <input type="button" value="삭   제" class="btn btn-warning btn-xs btn-danger" id="db_del_<?echo $row[idx]?>" onclick="db_del(<?echo $row[idx]?>)">
-<br />
-<br />
+	  <input type="button" value="수정" class="" id="memo_edit_<?echo $row[idx]?>" onclick="memo(this.id,$('#memo_<?echo $row[idx]?>').val(), <?echo $row[idx]?>)">
+	  <input type="button" value="삭   제" class="" id="db_del_<?echo $row[idx]?>" onclick="db_del(<?echo $row[idx]?>)">
 
 <?
-	$ch_class = "btn ";	
+	$ch_class = " ";	
 	$ch_value = "글 확인";
 	if($row[ch]==1){
-		$ch_class = $ch_class . "btn-link btn-xs disabled";
+		$ch_class = $ch_class . "disable_button";
 		$ch_value = "확인됨";
 
 	}else{
-		$ch_class = $ch_class . "btn-success btn-xs";
+		$ch_class = $ch_class . "";
 	}
 
 ?>

@@ -1,7 +1,6 @@
-
 $(document).ready(function(){
-
 		$('#logout_txt').click(function(){
+			alert("all");
 			$.ajax({   
 				type: "GET",   
 				url: "proce.php",   
@@ -12,5 +11,4 @@ $(document).ready(function(){
 				}
 			});  
 		});
-
-	);
+});
