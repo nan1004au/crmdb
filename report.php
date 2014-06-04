@@ -23,6 +23,13 @@ $ev_query = "";
 $ch_query = "";
 $sh_query = "";
 $br_query = "";
+//------------------------------ 아이디 관련 
+
+$id_branch = $_SESSION["branch"];
+$id_branch_query = "";
+if($id_branch != "관리자"){
+	$id_branch_query = " and branch like '%$id_branch%'";
+}
 
 //------------------------------ 셀렉트문 출력용 
 $eventNameSelect = "";
@@ -60,8 +67,9 @@ if(isset($sh)){
 }
 
 $event_name = mysqli_query($connect, "select Distinct(event_name) from $table_name_db ");
-$result = mysqli_query($connect, "SELECT * FROM $table_name_db where idx is not null $ev_query $ch_query $sh_query $br_query $ca_query order by idx desc"); 
-$total = mysqli_num_rows($result);
+//$title_query = "SELECT * FROM $table_name_db where idx is not null ($ev_query $ch_query $sh_query $br_query $ca_query) $id_branch_query order by idx desc";
+//$result = mysqli_query($connect, $title_query); 
+//$total = mysqli_num_rows($result);
 
 
 //페이징과 관련된 작업 
@@ -73,7 +81,7 @@ $page_num = ceil($total/$posts_num);  //전체 페이지 개수
 $page_start = $posts_num * ($page_seq-1);  //$page_seq의 값에 따라 페이지가 구분된다. 할당안하면 0이 들어감.
 
 $query = "SELECT *, (select count(phone) from $table_name_db p where phone like  o.phone) as phone_d   FROM $table_name_db o where idx is not null "; 
-$query = $query . " $ev_query $ch_query $sh_query $br_query $ca_query order by idx desc limit $page_start, $posts_num";
+$query = $query . " $ev_query $ch_query $sh_query $br_query $ca_query $id_branch_query order by idx desc limit $page_start, $posts_num";
 
 $result = mysqli_query($connect, $query);
 //페이징 관련 작업 끝 
@@ -90,6 +98,7 @@ $result = mysqli_query($connect, $query);
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script type="text/javascript" src="js/report.js"></script>
+<script type="text/javascript" src="js/all.js"></script>
 
 <title><?=$config_title ?> DB - 홈</title>
 
@@ -142,7 +151,9 @@ display:none;
 			printSelectDistinct($connect, $table_name_db, "event_name", $ev);
 		?>
 	</select>
-
+<?
+	if($id_branch =="관리자"){ //관리자일 경우에는 지점을 출력해 준다 
+?>
 	<!-- 지점별 --> 
 	<select style="width:100px;" id="branchFromSelect" class="form-control">
 	<?
@@ -150,6 +161,7 @@ display:none;
 	printSelectDistinct($connect, $table_name_branch, "name", $br);
 ?>
 	</select>
+<?}?>
 
 	<!-- 지점별 --> 
 	<select style="width:100px;" id="categoryFromSelect" class="form-control">

@@ -37,9 +37,11 @@ if($flag == "check") { //확인하기 처리
 	$count=mysqli_num_rows($result);
 	$row = mysqli_fetch_array($result);
 	$title = $row['company_name'];
+	$branch = $row['branch'];
 	if($count == 1){
 		$_SESSION["user_id"]   =  $user_id;
 		$_SESSION["title"]   =  $title;
+		$_SESSION["branch"]   =  $branch;
 		echo "ok";
 	}else{
 		echo "error : ";

@@ -20,6 +20,8 @@ if(!isset($_SESSION["user_id"])){
 		<!DOCTYPE html>
 		<html lang="ko">
 		<head>
+
+		<script type="text/javascript" src="js/all.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 		<script type="text/javascript" src="js/create_form.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/create_form.css" />

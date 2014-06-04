@@ -41,6 +41,7 @@ if(!isset($_SESSION["user_id"])){
 			<script src="../../assets/js/html5shiv.js"></script>
 			<script src="../../assets/js/respond.min.js"></script>
 			<![endif]-->
+		<script type="text/javascript" src="js/all.js"></script>
 		</head>
 		<body>
 		<div class="navbar navbar-inverse navbar-fixed-top">
@@ -69,14 +70,17 @@ if(!isset($_SESSION["user_id"])){
 						<button  type="button" id="btn-company-name"  class="btn btn-default">회사명 수정 </button>
 					</div>
 
-					<label for="exampleInputEmail1">관리자 비밀번호 </label>
+					<label for="exampleInputEmail1"> <?= $_SESSION["user_id"]?> 비밀번호 변경</label>
+				
 					<div class = "form-inline">
 						<input type="password" id="pass1" style="width:100px;" class="form-control" placeholder="비밀번호를 입력해 주세요" id="pass"> 
 						<input type="password" id="pass2" style="width:100px;" class="form-control" placeholder="비밀번호를 입력해 주세요" id="pass">
 						<button  type="button" id="btn-user-pass"  class="btn btn-default">비밀번호  수정 </button>
 					</div>
 
-
+				<?
+				if($_SESSION['branch'] == '관리자'){
+			?>
 					<label for="exampleInputEmail1">아이디</label>
 					<table class="table table-bordered" style="font-size:11px;width:500px">
 					<tr>
@@ -101,6 +105,7 @@ if(!isset($_SESSION["user_id"])){
 						?>
 						<select id="select-member-branch-<?=$row_member['idx']?>" class="form-control input-sm" style="display:inline;width:120px" name="">
 						<?
+							echo '<option value="관리자">관리자</option>';
 						while($row_member_branch = mysqli_fetch_array($result_member_branch)){
 							if($row_member_branch['name'] == $row_member['branch']){
 								$selected = " selected ";
@@ -136,6 +141,7 @@ if(!isset($_SESSION["user_id"])){
 						?>
 						<select id="member_add_branch" class="form-control" style="display:inline;width:120px" name="">
 						<?
+							echo '<option value="관리자">관리자</option>';
 						while($row_member_branch = mysqli_fetch_array($result_member_branch)){
 							echo '<option value="'. $row_member_branch['name'] . '">' . $row_member_branch['name'] . '</option>';
 						}
@@ -144,6 +150,7 @@ if(!isset($_SESSION["user_id"])){
 						</select>
 						<button  type="button" id="btn-member-add" class="btn btn-default">아이디추가 </button>
 					</div>
+
 
 
 
@@ -207,6 +214,7 @@ if(!isset($_SESSION["user_id"])){
 						<input type="text"  style="width:300px" class="form-control" name="text-j-category-add"  id="text-j-category-add" placeholder="이벤트  아이디을 입력해 주세요">
 						<button  type="submit"  id="btn-j-category-add" class="btn btn-default">진료과목 추가 </button>
 					</div>
+				<?}?>
 				</div>
 			</div>
 
