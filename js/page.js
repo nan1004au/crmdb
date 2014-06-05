@@ -15,6 +15,11 @@ $(document).ready(function(){
 
 		$('#prev_url').val(document.referrer);
 
+		$('label').tooltip({
+			showBody:"-"	
+		});
+
+
 
 		$('#btn-submit').click(function(){
 				$('#db_form').submit();
