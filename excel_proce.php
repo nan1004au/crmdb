@@ -2,41 +2,12 @@
 $ev = $_GET['ev'];
 $ch = $_GET['ch'];
 $sh = $_GET['sh'];
+$br = $_GET['br'];
+
 
 require_once 'PHPExcel_last/Classes/PHPExcel.php';
 include("config.php");
 include("db.php");
-//include("fun.php");
-
-/*
-function create_query_where_string($ev, $ch, $sh){
-	$query = "";
-	$ev_query = "";
-	$ch_query = "";
-	$sh_query = "";
-
-	if(isset($ev)){
-		$ev_query = "and event_name like '$ev' ";
-	}
-	if(isset($ch)){
-		if($ch == "check"){
-			$ch_query = "and ch=1 ";
-		}else if($ch == "no_check"){
-			$ch_query = "and ch is NULL ";
-		}
-		if(isset($ev)){
-			$ev_query . " AND " . $ch_query;
-		}
-	}
-
-	if(isset($sh)){
-		$sh_query = "and (etc like '%$sh%' or event like '%$sh%' or phone like '%$sh%' or name like '%$sh%' or memo like '%$sh%' or prev_url like '$sh' or time like '%$sh%')";
-	}
-
-	$query = "$ev_query $ch_query $sh_query";
-	return $query;
-}
-*/
 
 $ev_query = "";
 $ch_query = "";
@@ -174,7 +145,6 @@ $sheetIndex->getColumnDimension('S')->setWidth(20);
 header('Content-Type: application/vnd.ms-excel');
 header('Content-Disposition: attachment;filename=adb.xls');
 header('Cache-Control: max-age=0');
-
 
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 $objWriter->save('php://output');

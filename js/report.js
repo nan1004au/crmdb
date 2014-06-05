@@ -11,7 +11,8 @@ $(document).ready(function(){
 
 		$('#sh_txt').focus();
 		$('#excel_btn').click(function(){
-			$(location).attr('href',"excel_proce.php?idx=0" + create_query_string('','') );
+			alert("excel_proce.php?idx=0&" + create_query_string('','') );
+			$(location).attr('href',"excel_proce.php?idx=0&" + create_query_string('','') );
 		});
 
 		//이벤트명으로 필터 
