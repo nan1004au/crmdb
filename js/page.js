@@ -17,11 +17,8 @@ $(document).ready(function(){
 
 
 		$('#btn-submit').click(function(){
-			//if(form_check()){
-			$('#db_form').submit();
-			//}
-
-			});
+				$('#db_form').submit();
+		});
 
 		$("#db_form").validate({
 			onkeyup:false,

@@ -159,7 +159,7 @@ include_once("../../include/page.php");
 					</div>
 					<?}?>
 					<div style="text-align:center">
-						<input type="submit" style="" value="무료상담신청" border="0" id="btn-submit" class="btn btn-primary btn-lg"/>
+						<input type="button" style="" value="무료상담신청" border="0" id="btn-submit" class="btn btn-primary btn-lg"/>
 						</form>
 						<br />
 						<br />
