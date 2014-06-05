@@ -21,6 +21,8 @@ if($active_menu== "홈"){
 	$create_form= 'class="act"';
 }
 ?>
+<header>
+<nav>
 <div class="nav-con">
 <div class="nav">
 <ul class="menu">
@@ -35,6 +37,8 @@ if($active_menu== "홈"){
 <a id="logout_txt" href="#">로그아웃</a>
 </div>
 </div>
+</nav>
+<header>
 <?}?>
 
 

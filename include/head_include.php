@@ -6,3 +6,8 @@
 <Script type="text/javascript" src="../../js/page.js"></script> 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all" />
 <title><?=$event_title?></title>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="../../js/html5shiv.js"></script>
+<script type="text/javascript" src="../..//respond.js"></script>
+<![endif]-->
+

@@ -1,14 +1,16 @@
+
+<!-- 꼭 들어가야 하는 부분 시작 --> 
 <?
 include_once("../../config.php");
 include_once("../../db.php");
 include_once("../../include/page.php");
 ?>
 
+<!-- 꼭 들어가야 하는 부분 끝 --> 
 
-<!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- 꼭 들어가야 하는 부분 시작 --> 
 <?include_once("../../include/head_include.php");?>
 <link href="../../dist/css/bootstrap.css" rel="stylesheet">
@@ -17,8 +19,8 @@ include_once("../../include/page.php");
 
 </head>
 <body>
-<div id="align">
-	<div id="content">
+	<div id="align">
+		<div id="content">
 				<form action="../../form_pr.php" class="" method="post" id="db_form" name="form">
 					<!-- 꼭 들어가야 하는 부분 시작 --> 
 					<input type="hidden" name="event_name" id="event_name" value="<?=$event_title?>" /> <!-- 이벤트명 --> 
@@ -31,21 +33,20 @@ include_once("../../include/page.php");
 						<img id="top_img" src="../../page/img/<?echo $event_img_01?>" > <!-- 첫번째 첨 부 이미지 --> 
 					</div>
 
-
 					<div id="up_form_box"><!-- div up_form_box start !-->
 						<div id="left"> <!-- div left start !-->
 							<?if( $row_form['ch_name'] == 'y'){?> <!-- 이름 --> 
-							<label style="width:150px;" for="name" class="">
+							<label style="width:150px;" for="name" class="col-lg-2 control-label">
 								이름 :
 							</label>
-							<input id="name" style="width:200px" class="" type="text" name="name" />
+							<input id="name" style="width:200px" class="form-control input-sm" type="text" name="name" />
 							<br />
 							<?} if( $ch_time == 'y'){ ?> <!-- 통화가능 시간 --> 
-							<label style="width:150px;" for="time" class="">
+							<label style="width:150px;" for="time" class="col-lg-2 control-label">
 								통화가능시간 : 
 							</label>
 
-							<select style="width:200px" class="" id="time" name="time">
+							<select style="width:200px" class="form-control input-sm" id="time" name="time">
 								<option value="">::시간선택::</option>
 								<option value="항시가능">항시가능</option>
 								<option value="09시~10시">09시~10시</option>
@@ -62,23 +63,23 @@ include_once("../../include/page.php");
 							<br />
 
 							<?}if( $ch_age == 'y'){?> <!-- 나이 --> 
-							<label style="width:150px;" for="age" class=""> 
+							<label style="width:150px;" for="age" class="col-lg-2 control-label"> 
 								나이 :
 							</label>
-							<input id="age" name="age" style="width:200px" class="" type="text" />
+							<input id="age" name="age" style="width:200px" class="form-control input-sm" type="text" />
 							<br />
 
 							<?}if( $ch_phone == 'y'){ ?><!-- 연락처  --> 
-							<label style="width:150px;" for="age" class="">
+							<label style="width:150px;" for="age" class="col-lg-2 control-label">
 								연락처 :
 							</label>
-							<input id="phone" name="phone" style="width:200px" class="" type="text" />
+							<input id="phone" name="phone" style="width:200px" class="form-control input-sm" type="text" />
 							<br />
 							<?  } if( $ch_sex == 'y'){ ?><!-- 성별 --> 
-							<label style="width:150px;" for="sex" class="">
+							<label style="width:150px;" for="sex" class="col-lg-2 control-label">
 								성별 :
 							</label>
-							<select style="width:200px" class=""  name="sex">
+							<select style="width:200px" class="form-control input-sm"  name="sex">
 								<option>남</option>
 								<option>여</option>
 							</select>
@@ -88,16 +89,16 @@ include_once("../../include/page.php");
 
 						<div id="right" ><!-- div left start!-->
 							<?   if( $ch_email== 'y'){ ?><!-- 이메일 --> 
-							<label style="width:150px;" for="age" class=""> 
+							<label style="width:150px;" for="age" class="col-lg-2 control-label"> 
 								이메일
 							</label>
-							<input id="email" name="email" style="width:200px" class="" type="text" />
+							<input id="email" name="email" style="width:200px" class="form-control input-sm" type="text" />
 							<br />
 							<?}if( $ch_branch == 'y'){ ?><!-- 지점 --> 
-							<label style="width:150px;" for="branch" class="">
+							<label style="width:150px;" for="branch" class="col-lg-2 control-label">
 								지점 :
 							</label>
-							<select style="width:200px" class="" id="branch"  name="branch">
+							<select style="width:200px" class="form-control input-sm" id="branch"  name="branch">
 								<option value="">지점 선택</option>
 
 							<?  $query = "select * from $table_name_branch";
@@ -109,17 +110,17 @@ include_once("../../include/page.php");
 							</select>
 							<br />
 							<?  } if( $ch_day == 'y'){ ?> <!-- 날짜 --> 
-							<label style="width:150px;" for="age" class=""> 
+							<label style="width:150px;" for="age" class="col-lg-2 control-label"> 
 								날짜 :
 							</label>
-							<input id="r_date" name="r_date" style="width:200px" class="" type="text" /> 
+							<input id="r_date" name="r_date" style="width:200px" class="form-control input-sm" type="text" /> 
 							<br />
 							<?  } if( $ch_group== 'y'){ ?> <!-- 진료 과목 --> 
-							<label style="width:150px;" for="sex" class="">
+							<label style="width:150px;" for="sex" class="col-lg-2 control-label">
 								진료과목 :
 							</label>
 
-							<select style="width:200px" class=""  name="j_category"> 
+							<select style="width:200px" class="form-control input-sm"  name="j_category"> 
 								<?
 								$query = "select * from $table_name_j_category";
 								$result_j_category = mysqli_query($connect, $query);
@@ -131,10 +132,10 @@ include_once("../../include/page.php");
 							</select>
 							<br />
 							<?  } if( $ch_price == 'y'){ ?> <!-- 이벤트 종류와 가격 --> 
-							<label style="width:150px;" for="event" class="">
+							<label style="width:150px;" for="event" class="col-lg-2 control-label">
 								진료선택 : 
 							</label>
-							<select style="width:200px" class=""  name="event_sel">
+							<select style="width:200px" class="form-control input-sm"  name="event_sel">
 								<?while($row_event = mysqli_fetch_array($result_event_list)){ ?>
 								<option value="<?echo $row_event['name']. " : ". $row_event['price']; ?>" >
 								<?echo $row_event['name'] . " : " . $row_event['price']; ?>
@@ -144,12 +145,14 @@ include_once("../../include/page.php");
 							<?}?>
 						</div> <!-- right end -->
 
-				<div id="bottom" style=""><!-- div bottom end!-->
+					</div><!-- div up_form_box end!-->
+
+				<div id="bottom" style="float:left;width:1000px;margin-top:10px"><!-- div bottom end!-->
 					<?if( $ch_story == 'y'){?> <!-- 문의 사항 --> 
-					<label style="width:150px;" for="etc" class="">
+					<label style="width:150px;" for="etc" class="col-lg-2 control-label">
 						기타문의
 					</label>
-					<textarea style="width:595px" class="" id="etc" rows="3" cols="100" name="etc"></textarea>
+					<textarea style="width:580px" class="form-control " id="etc" rows="3" cols="100" name="etc"></textarea>
 					<br />
 					<?}?>
 
@@ -159,7 +162,7 @@ include_once("../../include/page.php");
 					</div>
 					<?}?>
 					<div style="text-align:center">
-						<input type="submit" style="" value="무료상담신청" border="0" id="btn-submit" class="btn btn-primary btn-lg"/>
+						<input type="button" style="margin-right:200px;width:200px" value="무료상담신청" border="0" id="btn-submit" class="btn btn-primary btn-lg"/>
 						</form>
 						<br />
 						<br />
@@ -170,10 +173,7 @@ include_once("../../include/page.php");
 					<img src="../../page/img/<?echo $event_img_02?>" > <!-- 두번째 첨부 이미지 --> 
 				</div>
 				<?}?>
-
-
+		</div>
 	</div>
-</div>
-	
 </body>
 </html>
