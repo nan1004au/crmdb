@@ -54,9 +54,10 @@ if(isset($sh)){
 }
 
 $event_name = mysqli_query($connect, "select Distinct(event_name) from $table_name_db ");
-//$title_query = "SELECT * FROM $table_name_db where idx is not null ($ev_query $ch_query $sh_query $br_query $ca_query) $id_branch_query order by idx desc";
-//$result = mysqli_query($connect, $title_query); 
-//$total = mysqli_num_rows($result);
+$title_query = "SELECT *, (select count(phone) from $table_name_db p where phone like  o.phone) as phone_d   FROM $table_name_db o where idx is not null "; 
+$result = mysqli_query($connect, $title_query); 
+$total = mysqli_num_rows($result);
+
 
 
 //페이징과 관련된 작업 
@@ -69,7 +70,6 @@ $page_start = $posts_num * ($page_seq-1);  //$page_seq의 값에 따라 페이�
 
 $query = "SELECT *, (select count(phone) from $table_name_db p where phone like  o.phone) as phone_d   FROM $table_name_db o where idx is not null "; 
 $query = $query . " $ev_query $ch_query $sh_query $br_query $ca_query $id_branch_query order by idx desc limit $page_start, $posts_num";
-
 $result = mysqli_query($connect, $query);
 //페이징 관련 작업 끝 
 

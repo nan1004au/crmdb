@@ -123,8 +123,6 @@ display:none;
 
 		<div class="container">
 		<div class="starter-template">
-		<br /><br />
-		<br /><br />
 		<h1><?=$config_title?> 폼 생성 페이지입니다</h1>
 		<form role="form" action="proce.php" method="post" id="create_form_form"  enctype="multipart/form-data" class="form-horizontal" >
 		<input type="hidden" name="flag" id="flag" value="form_edit">

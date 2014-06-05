@@ -55,8 +55,6 @@ display:none;
 <section>
 <div class="container">
 	<div class="starter-template">
-	  <br /><br />
-	  <br /><br />
 	  <h1><?=$config_title?> DB 페이지입니다</h1>
 	<div>
 	<article>

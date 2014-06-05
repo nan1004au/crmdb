@@ -48,9 +48,6 @@ if(!isset($_SESSION["user_id"])){
 				<?menu_print("설정");?>
 		<div class="container">
 			<div class="starter-template">
-				<br /><br />
-				<br /><br />
-				<br /><br />
 				<h1 id="h1_title" ><?=$config_title?> 설정  페이지입니다</h1>
 				<div class="form-group" id="admin_form">
 
