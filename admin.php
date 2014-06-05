@@ -53,7 +53,7 @@ if(!isset($_SESSION["user_id"])){
 
 					<label for="exampleInputEmail1">회사명</label>
 					<div class = "form-inline bottom">
-						<input type="text"  style="width:300px;margin-right:10px" value="<?=$config_title?>" class="" name="text-company-edit"  id="text-company-edit" placeholder="이벤트  아이디을 입력해 주세요">
+						<input type="text"  style="width:300px;margin-right:10px" value="<?=$config_title?>" class="" name="text-company-edit"  id="text-company-edit" placeholder="회사명을  입력해 주세요">
 						<button  type="button" id="btn-company-name"  class="">회사명 수정 </button>
 					</div>
 
