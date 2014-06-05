@@ -39,12 +39,14 @@ $(document).ready(function(){
 				phone:{required: true},
 				branch:{required: true},
 				agree:{required: true},
+				age:{required:true, number:true},
 			},
 			messages: {
 				agree: "개인정보 동의를 해부세요 ",
 				name: "이름을 입력해 주세요",
 				phone: "연락처를 입력해 주세요",
 				branch: "지점 입력해 주세요",
+				age: "나이를 숫자로 입력해 주세요"
 			}
 
 	});
