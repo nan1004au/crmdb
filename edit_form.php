@@ -3,11 +3,15 @@ session_start();
 if(!isset($_SESSION["user_id"])){
 
 	?>
+<html lang="ko">
+<head>
+		<meta charset="utf-8">
 		<script type="text/javascript">
-		alert("로그인 해주세요");
-	window.location = "index.php";
+			alert("로그인 해주세요");
+			window.location = "index.php";
+		</script>";
 		
-	</script>";
+</head>
 	<?
 }else
 {
