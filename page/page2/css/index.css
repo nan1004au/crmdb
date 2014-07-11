@@ -124,11 +124,11 @@ ul,ol { list-style:none; }
 #image{ 
 	text-align:center;
 	width:100%; 
-	background:#CCC
+	background:#CCC;
+	margin-top:230px;
 }
 #image img {
-width:800px;
-margin-top:150px;
+width:100%;
 }
 #top_left input, #top_left select {
 	margin-bottom:3px;
